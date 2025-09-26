@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// replace `your-username` and `your-repo` with your actual GitHub info
+// base must match your repo name on GitHub
 export default defineConfig({
   plugins: [react()],
-  base: '/your-repo/', 
+  base: '/homepage/',
 })
