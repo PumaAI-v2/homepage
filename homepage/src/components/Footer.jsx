@@ -6,10 +6,10 @@ export default function Footer(){
     <footer className="site-footer">
       <div className="footer-left">
         <img src={logoSrc} alt="PumaAI" className="mini-logo" />
-        <div className="copy">PumaAI · v2</div>
+        <div className="copy">© PumaAI • kerrigan says hi</div>
       </div>
       <div className="footer-right">
-        <div className="note">Crafted with pop energy — Sabrina + Tate vibes, but all PumaAI.</div>
+        <div className="note">made with ❤️ by silas</div>
       </div>
     </footer>
   )

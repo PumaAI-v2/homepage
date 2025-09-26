@@ -1,13 +1,11 @@
 import React from 'react'
-import logoSrc from '../assets/logo.png' // -> put your logo at src/assets/logo.png
-// If you want to use the provided absolute path in the container, replace the import line with:
-// const logoSrc = '/mnt/data/IMG_0005.jpeg'
+import logoSrc from '../assets/logo.png'
 
 const TABS = [
   { label: '', isLogo: true, href: 'https://example.com' },
-  { label: 'item 1', href: 'https://example.com' },
-  { label: 'item 2', href: 'https://example.com' },
-  { label: 'item 3', href: 'https://example.com' }
+  { label: 'Home', href: 'https://example.com' },
+  { label: 'Contact', href: 'https://example.com' },
+  { label: 'Book a demo', href: 'https://example.com' }
 ]
 
 export default function TopTabs() {
@@ -23,7 +21,7 @@ export default function TopTabs() {
         {TABS.map((t, i) =>
           t.isLogo ? (
             <a key={i} href={t.href} onClick={handleNav(t.href)} className="tab logo">
-              <img src={logoSrc} alt="PumaAI logo" />
+              <img src={logoSrc} alt="logo" />
             </a>
           ) : (
             <a key={i} href={t.href} onClick={handleNav(t.href)} className="tab">
@@ -34,7 +32,10 @@ export default function TopTabs() {
       </div>
 
       <div className="tabs-right">
-        <button className="ghost">Sign in</button>
+        <button className="ghost">Log in</button>
+        <text>  </text>
+        
+        <button className="ghost">Sign up</button>
       </div>
     </nav>
   )
