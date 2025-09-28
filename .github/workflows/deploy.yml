@@ -19,17 +19,12 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
-        cache-dependency-path: homepage/package-lock.json
         
     - name: Install dependencies
-      run: |
-        cd homepage
-        npm ci
+      run: npm ci
         
     - name: Build
-      run: |
-        cd homepage
-        npm run build
+      run: npm run build
       env:
         # Add your environment variables here
         VITE_APP_NAME: PumaAI
@@ -44,4 +39,4 @@ jobs:
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./homepage/dist
+        publish_dir: ./dist
