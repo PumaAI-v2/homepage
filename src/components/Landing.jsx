@@ -1,9 +1,10 @@
 import React from 'react'
-import TopTabs from './components/TopTabs'
-import Hero from './components/Hero'
-import Footer from './components/Footer'
+import { Link } from 'react-router-dom'
+import TopTabs from './TopTabs'
+import Hero from './Hero'
+import Footer from './Footer'
 
-export default function App() {
+export default function Landing() {
   return (
     <div className="app">
       <div className="page-wrap">

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const goExample = (e) => {
@@ -7,7 +8,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero" role="region" aria-label="PumaAI v2 hero">
+    <section className="hero" role="region" aria-label="PumaAI hero">
       <div className="hero-inner">
         <p className="eyebrow">The biggest update yet.</p>
 
@@ -20,8 +21,8 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-          <button className="primary" onClick={goExample}>Learn more</button>
-          <a className="secondary" href="#play" onClick={(e)=>e.preventDefault()}>Try the demo</a>
+          <Link to="/register" className="primary">Get Started</Link>
+          <Link to="/login" className="secondary">Sign In</Link>
         </div>
 
         <div className="feature-cards" aria-hidden>

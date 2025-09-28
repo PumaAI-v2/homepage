@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: homepage/package-lock.json
+        
+    - name: Install dependencies
+      run: |
+        cd homepage
+        npm ci
+        
+    - name: Build
+      run: |
+        cd homepage
+        npm run build
+      env:
+        # Add your environment variables here
+        VITE_APP_NAME: PumaAI
+        VITE_APP_VERSION: 2.0.0
+        VITE_ENVIRONMENT: production
+        # Uncomment and add your API keys when ready
+        # VITE_OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        # VITE_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./homepage/dist
