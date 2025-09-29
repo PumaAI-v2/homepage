@@ -1,4 +1,4 @@
-# PumaAI - Intelligent AI Assistant Platform
+# PumaAI - Your Platform for AI
 
 ![PumaAI Screenshot](screenshot.png)
 
