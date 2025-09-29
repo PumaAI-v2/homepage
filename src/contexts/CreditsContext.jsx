@@ -4,6 +4,7 @@ import BillingService from '../services/billing.js';
 
 const CreditsContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCredits = () => {
   const context = useContext(CreditsContext);
   if (!context) {

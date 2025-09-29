@@ -18,7 +18,8 @@ class AnalyticsService {
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', config.analytics.googleAnalyticsId);
 
@@ -32,7 +33,7 @@ class AnalyticsService {
     if (!this.enabled || !this.initialized) return;
     
     try {
-      gtag('event', eventName, {
+      window.gtag('event', eventName, {
         app_name: config.app.name,
         app_version: config.app.version,
         ...parameters
@@ -46,7 +47,7 @@ class AnalyticsService {
     if (!this.enabled || !this.initialized) return;
     
     try {
-      gtag('config', config.analytics.googleAnalyticsId, {
+      window.gtag('config', config.analytics.googleAnalyticsId, {
         page_path: pagePath
       });
     } catch (error) {
@@ -68,14 +69,14 @@ class HealthCheckService {
     // Check OpenAI service
     try {
       checks.openai = !!config.openai.apiKey && config.features.enableOpenAI;
-    } catch (error) {
+    } catch {
       checks.openai = false;
     }
 
     // Check Analytics
     try {
       checks.analytics = !!config.analytics.googleAnalyticsId && config.features.enableAnalytics;
-    } catch (error) {
+    } catch {
       checks.analytics = false;
     }
 

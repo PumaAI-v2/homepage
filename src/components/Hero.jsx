@@ -2,11 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Hero() {
-  const goExample = (e) => {
-    e.preventDefault()
-    window.location.href = 'https://example.com'
-  }
-
   return (
     <section className="hero" role="region" aria-label="PumaAI hero">
       <div className="hero-inner">

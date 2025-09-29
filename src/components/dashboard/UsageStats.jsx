@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { useCredits } from '../../contexts/CreditsContext'
@@ -6,7 +6,7 @@ import { useCredits } from '../../contexts/CreditsContext'
 export default function UsageStats() {
   const { user, logout } = useAuth()
   const { credits } = useCredits()
-  const [stats, setStats] = useState({
+  const [stats] = useState({
     totalRequests: 1247,
     successfulRequests: 1189,
     failedRequests: 58,
@@ -124,7 +124,7 @@ export default function UsageStats() {
             <div className="chart-container">
               <div className="chart-placeholder">
                 <div className="chart-bars">
-                  {stats.monthlyUsage.map((month, index) => (
+                  {stats.monthlyUsage.map((month) => (
                     <div key={month.month} className="chart-bar-group">
                       <div className="chart-bar-label">{month.month}</div>
                       <div className="chart-bars-container">
